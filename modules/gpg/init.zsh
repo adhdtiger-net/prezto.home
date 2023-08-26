@@ -49,7 +49,7 @@ if grep '^enable-ssh-support' "$_gpg_agent_conf" &> /dev/null; then
 fi
 
 # Clean up.
-unset _gpg_agent_{conf,env, socket}
+unset _gpg_agent_{conf,env,socket}
 
 # Disable GUI prompts inside SSH.
 if [[ -n "$SSH_CONNECTION" ]]; then

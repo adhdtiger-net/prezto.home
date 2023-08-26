@@ -55,6 +55,9 @@ path=(
   $path
 )
 
+# Set PATH, MANPATH, etc., for Homebrew. *inserted by homebrew*
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 #
 # Less
 #
