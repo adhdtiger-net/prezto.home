@@ -5,6 +5,11 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+## Ghostty shell integration for zsh. This should be at the top of your bashrc!
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+  builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+fi
+
 # let ssh know we are suing gpg-agent
 # unset SSH_AGENT_PID
 # if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
@@ -17,6 +22,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
 
 # Detect terminal program and load appropriate shell integration
 case "${TERM_PROGRAM}" in
@@ -36,10 +42,6 @@ case "${TERM_PROGRAM}" in
   ;;
 esac
 
-## Ghostty shell integration for zsh. This should be at the top of your bashrc!
-if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
-  builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
-fi
 # builtin source ${XDG_CONFIG_HOME}/zsh/ghostty/ghostty-integration
 
 # if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
