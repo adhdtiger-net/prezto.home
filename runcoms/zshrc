@@ -19,40 +19,26 @@ fi
 # Customize to your needs...
 
 # Detect terminal program and load appropriate shell integration
-# case "$TERM_PROGRAM" in
-# "WarpTerminal")
-#   # Add Warp Terminal specific integration if needed
-#   return
-#   ;;
-# "Ghostty")
-#   # Add Ghostty shell integration for zsh
-#   [[ -f "${XDG_CONFIG_HOME}/zsh/ghostty/ghostty-integration" ]] && source "${XDG_HOME_CONFIG}/zsh/ghostty/ghostty-integration"
-#   ;;
-# "Kitty")
-#   # Add Warp Terminal specific integration if needed
-#   return
-#   ;;
-# "iTerm.app")
-#   # Add iTerm2 Terminal specific integration if needed
-#   [[ -f "${XDG_HOME_CONFIG}/zsh/iterm2/.iterm2_shell_integration.zsh" ]] && source "$HOME/.config/iterm2/.iterm2_shell_integration.zsh"
-#   ;;
-# "Apple_Terminal")
-#   # Add Apple Terminal specific integration if needed
-#   return
-#   ;;
-# "Hyper")
-#   # Add Hyper specific integration if needed
-#   return
-#   ;;
-# *)
-#   # Default case for other terminal programs
-#   return
-#   ;;
-# esac
+case "${TERM_PROGRAM}" in
+"iTerm.app")
+  if [ -f "${HOME}/.config/iterm2/.iterm2_shell_integration.zsh" ]; then
+    source "${HOME}/.config/iterm2/.iterm2_shell_integration.zsh"
+  fi
+  ;;
+"Apple_Terminal")
+  # Add Apple Terminal specific integration if needed
+  ;;
+"Hyper")
+  # Add Hyper specific integration if needed
+  ;;
+*)
+  # Default case for other terminal programs
+  ;;
+esac
 
 ## Ghostty shell integration for zsh. This should be at the top of your bashrc!
 if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
-    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+  builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
 fi
 # builtin source ${XDG_CONFIG_HOME}/zsh/ghostty/ghostty-integration
 
